@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'house_app',
     "phonenumber_field",
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,8 @@ LANGUAGES = (
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'tr'
 MODELTRANSLATION_LANGUAGES = ('tr', 'en')
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
