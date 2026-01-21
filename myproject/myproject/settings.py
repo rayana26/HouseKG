@@ -22,6 +22,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -100,6 +102,8 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Bishkek'
 
+USE_L10N = True
+
 USE_I18N = True
 
 USE_TZ = True
@@ -119,3 +123,11 @@ AUTH_USER_MODEL = 'house_app.UserProfile'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('tr', 'Turkish'),
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'tr'
+MODELTRANSLATION_LANGUAGES = ('tr', 'en')

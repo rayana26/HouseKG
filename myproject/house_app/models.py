@@ -27,10 +27,10 @@ class City(models.Model):
     def __str__(self):
         return self.city_name
 
+
 class District(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     district_name = models.CharField(max_length=30)
-
 
 
 class Property(models.Model):
