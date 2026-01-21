@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
+    'allauth',
+    'allauth.account',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -33,6 +35,11 @@ INSTALLED_APPS = [
     'house_app',
     "phonenumber_field",
     'django_filters',
+    'rest_framework_swagger',
+    'drf_yasg',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -137,3 +145,5 @@ MODELTRANSLATION_LANGUAGES = ('tr', 'en')
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -52,6 +52,7 @@ class Property(models.Model):
     documents = models.BooleanField()
     video = models.ImageField(upload_to='video_photo', null=True, blank=True)
     seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    date = models.DateField(null=True,blank=True)
 
     def __str__(self):
         return f'{self.title},{self.descriptions},{self.region},{self.city},{self.seller}'

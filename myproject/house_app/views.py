@@ -4,7 +4,12 @@ from .serializers import (UserProfileListSerializer,RegionListSerializer,ReviewS
                           PropertyCreateSerializer,DistrictDetailSerializer,RegionDetailSerializer,CityDetailSerializer,
                           ReviewCreateSerializer)
 from .models import (UserProfile,Region,Review,City,District,Property)
-from rest_framework import viewsets,generics
+from rest_framework import viewsets,generics,status
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
+from .permitions import CheckRolePermission,CreateHotelPermission
+from .filter import PropertyFilter
+from .pagination import PropertyPagination
 
 class UserProfileListAPIView(generics.ListAPIView):
   queryset = UserProfile.objects.all()
@@ -32,13 +37,13 @@ class RegionDetailAPIView(generics.RetrieveAPIView):
 class ReviewCreateAPIView(generics.CreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewCreateSerializer
-    # permission_classes = [CheckRolePermission]
-    # filterset_fields = ['rating', 'created_date']
+    permission_classes = [CheckRolePermission]
+    filterset_fields = ['rating', 'created_date']
 
 class ReviewEditView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewCreateSerializer
-    # permission_classes = [CheckRolePermission]
+    permission_classes = [CheckRolePermission]
 
     def get_queryset(self):
         return Review.objects.filter(buyer=self.request.user)
@@ -62,15 +67,16 @@ class DistrictDetailAPIView(generics.RetrieveAPIView):
 class PropertyListAPIView(generics.ListAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertyListSerializer
-    # filter_backends = [DjangoFilterBackend, SearchFilter]
-    # filterset_class = PropertyFilter
-    # search_fields = ['property_type', 'max_guests', 'city',  'rules']
-    # pagination_class = PropertyPagination
+    filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
+    filterset_class = PropertyFilter
+    pagination_class = PropertyPagination
+    ordering_fields = ['date','price', 'area']
+
 
 class PropertyCreateView(generics.CreateAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertyCreateSerializer
-    # permission_classes = [CreateHotelPermission]
+    permission_classes = [CreateHotelPermission]
 
     def get_queryset(self):
         return Property.objects.filter(seller=self.request.user)
