@@ -2,7 +2,7 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter, SimpleRouter
 from .views import (UserProfileListAPIView,RegionListAPIView,CityListAPIView,ReviewEditView,PropertyListAPIView,DistrictListAPIView,
                     DistrictDetailAPIView,RegionDetailAPIView,CityDetailAPIView,ReviewCreateAPIView,PropertyCreateView,
-                    PropertyDetailAPIView,UserProfileDetailAPIView)
+                    PropertyDetailAPIView,UserProfileDetailAPIView,UserRegisterView,UserLoginView,LogoutView)
 
 router = SimpleRouter()
 urlpatterns = [
@@ -20,4 +20,7 @@ urlpatterns = [
     path('region/<int:pk>/', RegionDetailAPIView.as_view(), name='region_detail'),
     path('district/', DistrictListAPIView.as_view(), name='district_list'),
     path('district/<int:pk>/', DistrictDetailAPIView.as_view(), name='district_list'),
+    path('register/', UserRegisterView.as_view(), name='register'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout')
 ]
