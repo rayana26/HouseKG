@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8c2bd01b-6e04-4f67-91d3-83a020c34f28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/house_app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/house_app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/house_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/house_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/house_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/house_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/myproject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/myproject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/myproject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/myproject/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
